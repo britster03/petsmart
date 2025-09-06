@@ -1,3 +1,15 @@
+# Fix for SQLite3 version compatibility with ChromaDB on Streamlit Cloud
+import sys
+import sqlite3
+
+# Check SQLite version and use pysqlite3 if needed
+if sqlite3.sqlite_version_info < (3, 35, 0):
+    try:
+        import pysqlite3 as sqlite3
+        sys.modules['sqlite3'] = sqlite3
+    except ImportError:
+        pass
+
 import streamlit as st
 import requests
 import json
