@@ -1,0 +1,41 @@
+{
+  "answer": "To access marketing support materials, you can visit the Partner Resource Center. The US version is available at https://petsmartcharities.org/pro/resources and the Canadian version at https://petsmartcharities.ca/pro/resources. You'll find grant recipient toolkits, brand guidelines, and official logos for both US and Canadian partners.",
+  "chunks": [
+    {
+      "text": "Partner Resource Center US [https://petsmartcharities.org/pro/resources] • Partner Resource Centre Canada [https://petsmartcharities.ca/pro/resources] Marketing Support Links Grant Recipient Toolkit: Use these tools to spread the word about our partnership! Here you'll find graphics, templates, and talking points to help promote your organization's work with PetSmart Charities.",
+      "metadata": {
+        "page": 2,
+        "document": "PetSmart Guide",
+        "snippet": "Partner Resource Center US [https://petsmartchari",
+        "pdf_path": "petsmart_guide.pdf",
+        "links_count": 18,
+        "links_json": "[{\"text\": \"Partner Resource Center US\", \"url\": \"https://petsmartcharities.org/pro/resources\"}, {\"text\": \"Partner Resource Centre Canada\", \"url\": \"https://petsmartcharities.ca/pro/resources\"}]"
+      },
+      "similarity": 0.892
+    },
+    {
+      "text": "US Grant Recipient Toolkit [https://petsmartcharities.org/pro/resources/marketing-support/grant-recipient-toolkit-us] Canadian Grant Recipient Toolkit [https://petsmartcharities.ca/pro/resources/marketing-support/grant-recipient-toolkit-ca] PetSmart Charities US Logos [https://petsmartcharities.org/pro/resources/marketing-support/petsmart-charities-logos] PetSmart Charities Canada Logos [https://petsmartcharities.ca/pro/resources/marketing-support/petsmart-charities-of-canada-logos]",
+      "metadata": {
+        "page": 2,
+        "document": "PetSmart Guide", 
+        "snippet": "US Grant Recipient Toolkit [https://petsmartcha",
+        "pdf_path": "petsmart_guide.pdf",
+        "links_count": 18,
+        "links_json": "[{\"text\": \"US Grant Recipient Toolkit\", \"url\": \"https://petsmartcharities.org/pro/resources/marketing-support/grant-recipient-toolkit-us\"}, {\"text\": \"PetSmart Charities US Logos\", \"url\": \"https://petsmartcharities.org/pro/resources/marketing-support/petsmart-charities-logos\"}]"
+      },
+      "similarity": 0.856
+    },
+    {
+      "text": "US Brand Guidelines [https://petsmartcharities.org/pro/resources/marketing-support/brand-guidelines-for-petsmart-charities] Canadian Brand Guidelines [https://petsmartcharities.ca/pro/resources/marketing-support/brand-guidelines-for-petsmart-charities-of-canada] For questions about marketing support, contact PetSmartCharitiesMarketing@PetSmartCharities.org [mailto:PetSmartCharitiesMarketing@PetSmartCharities.org]",
+      "metadata": {
+        "page": 2,
+        "document": "PetSmart Guide",
+        "snippet": "US Brand Guidelines [https://petsmartcharities",
+        "pdf_path": "petsmart_guide.pdf", 
+        "links_count": 18,
+        "links_json": "[{\"text\": \"US Brand Guidelines\", \"url\": \"https://petsmartcharities.org/pro/resources/marketing-support/brand-guidelines-for-petsmart-charities\"}, {\"text\": \"PetSmartCharitiesMarketing@PetSmartCharities.org\", \"url\": \"mailto:PetSmartCharitiesMarketing@PetSmartCharities.org\"}]"
+      },
+      "similarity": 0.834
+    }
+  ]
+}
