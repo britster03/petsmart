@@ -213,15 +213,6 @@ The system automatically detects and categorizes:
 3. **Add additional visualizations** as needed
 4. **Extend link categorization** for your specific use case
 
-## 📝 License
-
-MIT License - feel free to adapt for your needs!
-
-## 🤝 Contributing
-
-Feel free to submit issues and enhancement requests!
-
----
 
 **Built with ❤️ for PetSmart Adoption Partners**
 
