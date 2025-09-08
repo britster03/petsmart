@@ -100,9 +100,18 @@ st.markdown("""
         background-color: #1E88E5 !important;
     }
     
-    /* Force all text elements to black */
+    /* Force all text elements to black but preserve spinner */
     p, div, span, h1, h2, h3, h4, h5, h6 {
         color: black !important;
+    }
+    
+    /* Preserve spinner visibility */
+    .stSpinner {
+        color: #1E88E5 !important;
+    }
+    
+    .stSpinner > div {
+        border-color: #1E88E5 !important;
     }
 </style>
 """, unsafe_allow_html=True)
