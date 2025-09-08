@@ -15,6 +15,7 @@ import requests
 import json
 import chromadb
 import os
+import re
 
 # Page configuration
 st.set_page_config(
@@ -106,6 +107,22 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+def clean_text(text):
+    """Clean and format text for better display"""
+    if not text:
+        return ""
+    
+    # Remove HTML tags
+    text = re.sub(r'<[^>]+>', '', text)
+    
+    # Remove extra whitespace and normalize
+    text = re.sub(r'\s+', ' ', text).strip()
+    
+    # Remove any remaining HTML entities
+    text = text.replace('&nbsp;', ' ').replace('&amp;', '&').replace('&lt;', '<').replace('&gt;', '>')
+    
+    return text
+
 def query_petsmart_rag(user_query: str):
     """Simple RAG query function"""
     try:
@@ -141,11 +158,19 @@ def query_petsmart_rag(user_query: str):
             data = json.loads(response.text)
             answer = data["outputs"][0]["outputs"][0]["artifacts"]["message"]
 
-            # Prepare sources
+            # Prepare sources with full text
             sources = []
             for i in range(min(3, len(chroma_results['documents'][0]))):
+                raw_text = chroma_results['documents'][0][i]
+                full_text = clean_text(raw_text)
+                
+                # Skip sources that are too short or empty after cleaning
+                if len(full_text.strip()) < 20:
+                    continue
+                    
                 source = {
-                    'text': chroma_results['documents'][0][i][:200] + "...",
+                    'text_preview': full_text[:200] + "..." if len(full_text) > 200 else full_text,
+                    'full_text': full_text,
                     'document': chroma_results['metadatas'][0][i].get('document', 'Unknown'),
                     'page': chroma_results['metadatas'][0][i].get('page', 'N/A')
                 }
@@ -200,16 +225,29 @@ def main():
             </div>
             """, unsafe_allow_html=True)
             
-            # Display sources
+            # Display sources with expandable sections
             if sources:
                 st.markdown("**Sources:**")
                 for i, source in enumerate(sources, 1):
-                    st.markdown(f"""
-                    <div class="source-box">
-                        <div class="source-title">Source {i}: {source['document']} (Page {source['page']})</div>
-                        {source['text']}
-                    </div>
-                    """, unsafe_allow_html=True)
+                    # Create a container for each source
+                    with st.container():
+                        st.markdown(f"""
+                        <div class="source-box">
+                            <div class="source-title">Source {i}: {source['document']} (Page {source['page']})</div>
+                            {source['text_preview']}
+            </div>
+            """, unsafe_allow_html=True)
+    
+                        # Add expandable section for full text
+                        with st.expander(f"📖 Read More - Source {i}", expanded=False):
+                            st.markdown("**Complete Text:**")
+                            st.text_area(
+                                f"Full content from {source['document']} (Page {source['page']})",
+                                value=source['full_text'],
+                                height=300,
+                                disabled=True,
+                                key=f"source_text_{i}"
+                            )
         else:
             st.error("Failed to get a response. Please try again.")
 
