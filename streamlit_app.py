@@ -105,13 +105,9 @@ st.markdown("""
         color: black !important;
     }
     
-    /* Preserve spinner visibility */
+    /* Simple spinner styling - let Streamlit handle the rest */
     .stSpinner {
         color: #1E88E5 !important;
-    }
-    
-    .stSpinner > div {
-        border-color: #1E88E5 !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -135,7 +131,7 @@ def clean_text(text):
 def query_petsmart_rag(user_query: str):
     """Simple RAG query function"""
     try:
-        with st.spinner("Processing your query..."):
+        with st.spinner("🔄 Processing your query..."):
             # ChromaDB query
             client = chromadb.CloudClient(
                 api_key='ck-GbrLBVwv1NppMUTvq38k5MwMxinBaRtaa6oyAiAFxHDN',
